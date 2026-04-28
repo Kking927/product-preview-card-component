@@ -1,16 +1,12 @@
 /* Custom Variables */
 :root {
-  /* Primary Colors */
   --dark-cyan: hsl(158, 36%, 37%);
   --very-dark-cyan: hsl(158, 36%, 20%);
   --cream: hsl(30, 38%, 92%);
-
-  /* Neutral Colors */
   --very-dark-blue: hsl(212, 21%, 14%);
   --dark-grayish-blue: hsl(228, 12%, 48%);
   --white: hsl(0, 0%, 100%);
 
-  /* Typography */
   --fs-body: 14px;
   --ff-accent: 'Fraunces', serif;   
   --ff-base: 'Montserrat', sans-serif; 
@@ -30,6 +26,7 @@ img {
 
 button {
   font: inherit;
+  cursor: pointer;
 }
 
 /* BASE STYLES */
@@ -53,28 +50,34 @@ body {
   max-width: 343px;
   border-radius: 10px;
   overflow: hidden;
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
-/* Ensures both halves are equal on desktop */
-.product-card__image,
-.product-content {
+.product-card__image {
   flex: 1;
+  overflow: hidden;
 }
 
 .product-card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover .product-card__image img {
+  transform: scale(1.08);
 }
 
 .product-content {
+  flex: 1;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* TYPOGRAPHY & BUTTON */
+/* TYPOGRAPHY */
 .product-category {
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -90,7 +93,7 @@ body {
 
 .product-description {
   line-height: 1.6;
-  max-width: 30ch;
+  max-width: 35ch;
 }
 
 .price-wrapper {
@@ -110,6 +113,7 @@ body {
   text-decoration: line-through;
 }
 
+/* THE BUTTON & MICRO-ANIMATIONS */
 .add-to-cart-btn {
   background-color: var(--dark-cyan);
   color: var(--white);
@@ -121,21 +125,33 @@ body {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.add-to-cart-btn img {
+  transition: transform 0.3s ease-out;
 }
 
 .add-to-cart-btn:hover {
   background-color: var(--very-dark-cyan);
 }
 
+.add-to-cart-btn:hover img {
+  transform: translateX(-4px);
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.97);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* MEDIA QUERIES (DESKTOP) */
 @media (min-width: 600px) {
-  .product-card__image,
-  .product-content {
-    flex: 1 1 50%;
-  }
-  
   .product-card {
     flex-direction: row;
     max-width: 600px;
@@ -144,5 +160,6 @@ body {
   .product-content {
     padding: 32px;
     gap: 24px;
+    justify-content: center;
   }
 }
