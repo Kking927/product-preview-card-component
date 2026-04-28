@@ -7,7 +7,10 @@
   --dark-grayish-blue: hsl(228, 12%, 48%);
   --white: hsl(0, 0%, 100%);
 
-  --fs-body: 14px;
+  --fs-body: 0.875rem; /* 14px */
+  --fs-price: 2rem;    /* 32px */
+  --fs-category: 0.75rem; /* 12px */
+  
   --ff-accent: 'Fraunces', serif;   
   --ff-base: 'Montserrat', sans-serif; 
 }
@@ -47,7 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--white);
-  max-width: 343px;
+  max-inline-size: 21.4375rem;  /* 343px */
   border-radius: 10px;
   overflow: hidden;
   animation: fadeIn 0.4s ease-out forwards;
@@ -71,29 +74,33 @@ body {
 
 .product-content {
   flex: 1;
-  padding: 24px;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
 }
 
 /* TYPOGRAPHY */
 .product-category {
   text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 12px;
+  letter-spacing: 0.3125rem; /* 5px */
+  font-size: var(--fs-category);
+  margin-block-end: -0.3125rem; /* 5px */
 }
 
 .product-title {
   font-family: var(--ff-accent);
   color: var(--very-dark-blue);
-  font-size: 32px;
+  font-size: 2rem;
   line-height: 1;
+  margin-block: 0;
 }
 
 .product-description {
-  line-height: 1.6;
+  line-height: 1.5;
   max-width: 35ch;
+  margin-block-end: 0.3125rem; /* 5px */
 }
 
 .price-wrapper {
@@ -105,7 +112,7 @@ body {
 .price-current {
   color: var(--dark-cyan);
   font-family: var(--ff-accent);
-  font-size: 32px;
+  font-size: var(--fs-price);
 }
 
 .price-old {
@@ -119,7 +126,8 @@ body {
   color: var(--white);
   border: none;
   border-radius: 8px;
-  padding: 15px;
+  padding-block: 0.9375rem; /* 15px */
+  margin-block-start: 0.625rem; /* 10px */
   font-weight: 700;
   display: flex;
   justify-content: center;
@@ -151,7 +159,7 @@ body {
 }
 
 /* MEDIA QUERIES (DESKTOP) */
-@media (min-width: 600px) {
+@media (min-width: 37.5rem) { /* 600px */
    .product-card__image,
   .product-content {
     flex: 1 1 50%;
@@ -159,12 +167,13 @@ body {
   
   .product-card {
     flex-direction: row;
-    max-width: 600px;
+    max-inline-size: 37.5rem; /* 600px */
   }
 
   .product-content {
-    padding: 32px;
-    gap: 24px;
+    padding-block: 2rem;
+    padding-inline: 2rem;
+    gap: 1.5rem;
     justify-content: center;
   }
 }
