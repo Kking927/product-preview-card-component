@@ -80,17 +80,18 @@ main {
   text-transform: uppercase;
   letter-spacing: 0.3125rem; 
   font-size: var(--fs-category);
+  line-height: 1.2;
 }
 
 .product-title {
   font-family: var(--ff-accent);
   color: var(--very-dark-blue);
   font-size: var(--fs-title);
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .product-description {
-  line-height: 1.6;
+  line-height: 1.5;
   max-width: 30ch;
 }
 
