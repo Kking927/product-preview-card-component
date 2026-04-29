@@ -45,7 +45,6 @@ main {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* padding: 1.5rem; ?need? */
 }
 
 /* PRODUCT CARD STRUCTURE */
@@ -86,7 +85,6 @@ main {
   text-transform: uppercase;
   letter-spacing: 0.3125rem; 
   font-size: var(--fs-category);
-  margin-block-start: 0.375rem;
 }
 
 .product-title {
