@@ -73,7 +73,7 @@ main {
   padding: clamp(1.25rem, 5vw, 2rem); 
   display: flex;
   flex-direction: column;
-  gap: 1.125rem;
+  gap: 1rem;
 }
 
 .product-category {
